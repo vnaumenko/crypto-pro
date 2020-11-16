@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, {useCallback, useState} from 'react';
 
 function File({onChange, id}) {
   const [file, setFile] = useState('');
@@ -22,7 +22,7 @@ function File({onChange, id}) {
     readFileAsString(event.target.files);
   }
 
-  //useEffect(() => onChange(id, file));
+  useCallback(() => onChange(id, file), [id, file]);
 
   return (
     <>
